@@ -3,8 +3,64 @@
   justify-content: center;
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#nav-container {
+  padding: 30px 0 15px 0;
+}
+
+#home-body {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+#my-pic {
+  max-width: 200px;
+  height: auto;
+  border-radius: 50%;
+}
+
+#bio {
+  max-width: 400px;
+}
+
+#project-container {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#project-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+}
+
+.project-rows {
+  display: flex;
+  gap: 40px;
+}
+
+.project-image {
+  max-width: 450px;
+  border-radius: 10px;
+}
+
+.project-content {
+  display: flex;
+  width: 450px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
 a {
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 1.2rem;
   color: #646cff;
   text-decoration: inherit;
 }
