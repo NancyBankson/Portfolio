@@ -11,6 +11,20 @@ body {
   padding: 30px 0 15px 0;
 }
 
+#wordfind-container {
+  display: grid;
+  /* Creates 10 columns, each 20px wide */
+  grid-template-columns: repeat(15, 30px);
+  /* Creates 10 rows, each 20px high */
+  grid-template-rows: repeat(15, 30px);
+}
+
+.char-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #home-body {
   display: flex;
   justify-content: center;
