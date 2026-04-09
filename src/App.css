@@ -5,13 +5,24 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
+  color: white;
 }
 
 #nav-container {
   padding: 30px 0 15px 0;
 }
 
+#home-title {
+  padding-left: 30px;
+}
+
+#wordfind-area {
+  display: flex;
+}
+
 #wordfind-container {
+  padding: 0 30px 0;
   display: grid;
   /* Creates 10 columns, each 20px wide */
   grid-template-columns: repeat(15, 30px);
