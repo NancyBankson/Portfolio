@@ -12,6 +12,7 @@ export function HomePage() {
     useEffect(() => {
         let searchOrientationValue = 0;
         let tempArray = [...isFoundArray].fill(false);
+        // let matchArray: number[] = [];
         for (let n = 0; n < wordfindArray.length; n++) {
             if (wordfindArray[n] === searchValue[0]) {
                 tempArray[n] = true;
@@ -55,14 +56,18 @@ export function HomePage() {
                     searchOrientationValue = 16;
                     tempArray[n + searchOrientationValue] = true;
                 }
+
+                // if (matchArray.length != searchValue.length) {
+                //     tempArray = Array(225).fill(false);
                 // }
-                // let matchArray = [n, n + searchOrientationValue];
                 let matchArray: number[] = [];
+                // matchArray = [];
+                // tempArray = Array(225).fill(false);
 
                 // may need to add if length > 3
                 // if (searchValue.length >= 3 ) {
                 //     tempArray = Array(225).fill(false);
-                // }                
+                // }             
                 console.log(searchValue.length);
                 switch (searchValue.length) {
                     case 3:
@@ -161,9 +166,11 @@ export function HomePage() {
                     if (matchArray.includes(s)) {
                         tempArray[s] = true;
                     }
-                    // else {
-                    //     tempArray[s] = false;
-                    // }
+                    else {
+                        if (matchArray.length === searchValue.length) {
+                             tempArray[s] = false;
+                        }                       
+                    }
                 }
             }
         }
