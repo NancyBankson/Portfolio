@@ -12,8 +12,12 @@ export function HomePage() {
     useEffect(() => {
         let searchOrientationValue = 0;
         let tempArray = [...isFoundArray].fill(false);
+        let successArray: number[] = [];
         // let matchArray: number[] = [];
         for (let n = 0; n < wordfindArray.length; n++) {
+
+            let matchArray: number[] = [];
+
             if (wordfindArray[n] === searchValue[0]) {
                 tempArray[n] = true;
                 if (searchValue[1] === wordfindArray[n - 16]) {
@@ -60,7 +64,9 @@ export function HomePage() {
                 // if (matchArray.length != searchValue.length) {
                 //     tempArray = Array(225).fill(false);
                 // }
-                let matchArray: number[] = [];
+
+                // let matchArray: number[] = [];
+
                 // matchArray = [];
                 // tempArray = Array(225).fill(false);
 
@@ -68,110 +74,144 @@ export function HomePage() {
                 // if (searchValue.length >= 3 ) {
                 //     tempArray = Array(225).fill(false);
                 // }             
-                console.log(searchValue.length);
                 switch (searchValue.length) {
                     case 3:
-                        if (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                     case 4:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3])) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                     case 5:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4])) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                     case 6:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5])) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                     case 7:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6])) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                     case 8:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7])) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                     case 9:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8])) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
-                    case 10:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9])) {
+                    case 10: matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                     case 11:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9]) && (searchValue[10] === wordfindArray[n + searchOrientationValue * 10])) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9]) && (searchValue[10] === wordfindArray[n + searchOrientationValue * 10])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                     case 12:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9]) && (searchValue[10] === wordfindArray[n + searchOrientationValue * 10]) && (searchValue[11] === wordfindArray[n + searchOrientationValue * 11])) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9]) && (searchValue[10] === wordfindArray[n + searchOrientationValue * 10]) && (searchValue[11] === wordfindArray[n + searchOrientationValue * 11])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                     case 13:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9]) && (searchValue[10] === wordfindArray[n + searchOrientationValue * 10]) && (searchValue[11] === wordfindArray[n + searchOrientationValue * 11]) && (searchValue[12] === wordfindArray[n + searchOrientationValue * 12])) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9]) && (searchValue[10] === wordfindArray[n + searchOrientationValue * 10]) && (searchValue[11] === wordfindArray[n + searchOrientationValue * 11]) && (searchValue[12] === wordfindArray[n + searchOrientationValue * 12])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                     case 14:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9]) && (searchValue[10] === wordfindArray[n + searchOrientationValue * 10]) && (searchValue[11] === wordfindArray[n + searchOrientationValue * 11]) && (searchValue[12] === wordfindArray[n + searchOrientationValue * 12]) && (searchValue[13] === wordfindArray[n + searchOrientationValue * 13])) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9]) && (searchValue[10] === wordfindArray[n + searchOrientationValue * 10]) && (searchValue[11] === wordfindArray[n + searchOrientationValue * 11]) && (searchValue[12] === wordfindArray[n + searchOrientationValue * 12]) && (searchValue[13] === wordfindArray[n + searchOrientationValue * 13])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                     case 15:
-                        if ((searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9]) && (searchValue[10] === wordfindArray[n + searchOrientationValue * 10]) && (searchValue[11] === wordfindArray[n + searchOrientationValue * 11]) && (searchValue[12] === wordfindArray[n + searchOrientationValue * 12]) && (searchValue[13] === wordfindArray[n + searchOrientationValue * 13]) && (searchValue[14] === wordfindArray[n + searchOrientationValue * 14])) {
+                        matchArray = [];
+                        if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2]) && (searchValue[3] === wordfindArray[n + searchOrientationValue * 3]) && (searchValue[4] === wordfindArray[n + searchOrientationValue * 4]) && (searchValue[5] === wordfindArray[n + searchOrientationValue * 5]) && (searchValue[6] === wordfindArray[n + searchOrientationValue * 6]) && (searchValue[7] === wordfindArray[n + searchOrientationValue * 7]) && (searchValue[8] === wordfindArray[n + searchOrientationValue * 8]) && (searchValue[9] === wordfindArray[n + searchOrientationValue * 9]) && (searchValue[10] === wordfindArray[n + searchOrientationValue * 10]) && (searchValue[11] === wordfindArray[n + searchOrientationValue * 11]) && (searchValue[12] === wordfindArray[n + searchOrientationValue * 12]) && (searchValue[13] === wordfindArray[n + searchOrientationValue * 13]) && (searchValue[14] === wordfindArray[n + searchOrientationValue * 14])) {
                             for (let r = 0; r < searchValue.length; r++) {
                                 matchArray.push(n + searchOrientationValue * r);
                             }
                         }
                         break;
                 }
-                for (let s = 0; s < 225; s++) {
-                    if (matchArray.includes(s)) {
-                        tempArray[s] = true;
-                    }
-                    else {
-                        if (matchArray.length === searchValue.length) {
-                             tempArray[s] = false;
-                        }                       
+                // console.log(matchArray);
+                // for (let s = 0; s < 225; s++) {
+                //     if (matchArray.includes(s)) {
+                //         tempArray[s] = true;
+                //     }
+                //     else {
+                //         if (matchArray.length === searchValue.length) {
+                //              tempArray[s] = false;
+                //         }                       
+                //     }
+                // }
+            }
+            if (matchArray.length > 0) {
+                successArray = [...matchArray];
+                console.log(matchArray);
+                console.log('here');
+            }
+
+            for (let s = 0; s < 225; s++) {
+                if (successArray.includes(s)) {
+                    tempArray[s] = true;
+                    console.log('location is ', s);
+                }
+                else {
+                    if (successArray.length === searchValue.length) {
+                        tempArray[s] = false;
                     }
                 }
+            }
+        }
+        for (let t = 0; t < tempArray.length; t++) {
+            if (tempArray[t] === true) {
+                console.log('location for temparray is ', t);
             }
         }
         setIsFoundArray([...tempArray]);
