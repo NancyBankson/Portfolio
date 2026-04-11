@@ -18,7 +18,6 @@ export function HomePage() {
             let matchArray: number[] = [];
 
             if (wordfindArray[n] === searchValue[0]) {
-                // tempArray[n] = true;
                 matchArray.push(n);
                 if (searchValue.length === 2) {
                     matchArray = [];
@@ -26,73 +25,51 @@ export function HomePage() {
                 if (searchValue[1] === wordfindArray[n - 16]) {
                     // orientation is up and left
                     searchOrientationValue = -16;
-                    // tempArray[n + searchOrientationValue] = true;
                     matchArray.push(n);
                     matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n - 15]) {
                     // orientation is up
                     searchOrientationValue = -15;
-                    // tempArray[n + searchOrientationValue] = true;
                     matchArray.push(n);
                     matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n - 14]) {
                     // orientation is up and right
                     searchOrientationValue = -14;
-                    // tempArray[n + searchOrientationValue] = true;
                     matchArray.push(n);
                     matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n - 1]) {
                     // orientation is left
                     searchOrientationValue = -1;
-                    // tempArray[n + searchOrientationValue] = true;
                     matchArray.push(n);
                     matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 1]) {
                     // orientation is right 
                     searchOrientationValue = 1;
-                    // tempArray[n + searchOrientationValue] = true;
                     matchArray.push(n);
                     matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 14]) {
                     // orientation is down and left
                     searchOrientationValue = 14;
-                    // tempArray[n + searchOrientationValue] = true;
                     matchArray.push(n);
                     matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 15]) {
                     // orientation is down
                     searchOrientationValue = 15;
-                    // tempArray[n + searchOrientationValue] = true;
                     matchArray.push(n);
                     matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 16]) {
                     // orientation is down and right
                     searchOrientationValue = 16;
-                    // tempArray[n + searchOrientationValue] = true;
                     matchArray.push(n);
                     matchArray.push(n + searchOrientationValue);
                 }
-
-                // if (matchArray.length != searchValue.length) {
-                //     tempArray = Array(225).fill(false);
-                // }
-
-                // let matchArray: number[] = [];
-
-                // matchArray = [];
-                // tempArray = Array(225).fill(false);
-
-                // may need to add if length > 3
-                // if (searchValue.length >= 3 ) {
-                //     tempArray = Array(225).fill(false);
-                // }             
                 switch (searchValue.length) {
                     case 3:
                         matchArray = [];
@@ -198,44 +175,19 @@ export function HomePage() {
                         }
                         break;
                 }
-                // console.log(matchArray);
-                // for (let s = 0; s < 225; s++) {
-                //     if (matchArray.includes(s)) {
-                //         tempArray[s] = true;
-                //     }
-                //     else {
-                //         if (matchArray.length === searchValue.length) {
-                //              tempArray[s] = false;
-                //         }                       
-                //     }
-                // }
             }
             if (matchArray.length > 0) {
-                successArray = [...successArray,...matchArray];
-                console.log(matchArray);
+                successArray = [...successArray, ...matchArray];
             }
 
             for (let s = 0; s < 225; s++) {
                 if (successArray.includes(s)) {
                     tempArray[s] = true;
-                    console.log('location is ', s);
                 }
-                // else {
-                //     if (successArray.length === searchValue.length) {
-                //         tempArray[s] = false;
-                //     }
-                // }
-            }
-        }
-        for (let t = 0; t < tempArray.length; t++) {
-            if (tempArray[t] === true) {
-                console.log('location for temparray is ', t);
             }
         }
         setIsFoundArray([...tempArray]);
     }, [searchValue]);
-
-
 
     useEffect(() => {
         const orientations: string[] = ['forward', 'backward', 'up', 'down', 'diagonal1', 'diagonal2', 'diagonal3', 'diagonal4'];
@@ -260,8 +212,6 @@ export function HomePage() {
             let wordAddedSuccessfully: boolean = false;
             let randomOrientation = Math.floor(Math.random() * 8);
             let orientation = orientations[randomOrientation];
-            // let orientation = orientations[7];
-            // console.log('orientation is ', orientation);
             switch (orientation) {
                 case 'forward':
                     wordAddedSuccessfully = false;
@@ -277,16 +227,12 @@ export function HomePage() {
                         usedIndexForWord = [];
                         for (let k = 0; k < wordArray.length; k++) {
                             if (wordArray[k] == letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('match ', wordArray[k]);
                             }
                             if ((usedIndex.includes(initialPossition + columnIndex + rowIndex)) && wordArray[k] != letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('conflict at ', initialPossition + columnIndex + rowIndex)
                                 noPossitionConflict = false;
                                 break;
                             }
                             letterArray[initialPossition + columnIndex] = wordArray[k];
-                            // console.log('position is ', initialPossition + columnIndex, wordArray[k]);
-                            // usedIndex.push(initialPossition + columnIndex);
                             usedIndexForWord.push(initialPossition + columnIndex + rowIndex);
                             columnIndex += 1;
                         }
@@ -312,16 +258,12 @@ export function HomePage() {
                         usedIndexForWord = [];
                         for (let k = 0; k < wordArray.length; k++) {
                             if (wordArray[k] == letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('match ', wordArray[k]);
                             }
                             if ((usedIndex.includes(initialPossition + columnIndex + rowIndex)) && wordArray[k] != letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('conflict at ', initialPossition + columnIndex + rowIndex)
                                 noPossitionConflict = false;
                                 break;
                             }
                             letterArray[initialPossition + columnIndex] = wordArray[k];
-                            // console.log('position is ', initialPossition + columnIndex, wordArray[k]);
-                            // usedIndex.push(initialPossition + columnIndex);
                             usedIndexForWord.push(initialPossition + columnIndex + rowIndex);
                             columnIndex -= 1;
                         }
@@ -332,14 +274,6 @@ export function HomePage() {
                             wordAddedSuccessfully = true;
                         }
                     }
-                    // columnMin = wordArray.length;
-                    // initialPossition = findInitialPossition(rowMin, rowMax, columnMin, columnMax);
-                    // for (let k = 0; k < wordArray.length; k++) {
-                    //     letterArray[initialPossition + columnIndex] = wordArray[k];
-                    //     console.log('position is ', initialPossition + columnIndex, wordArray[k]);
-                    //     usedIndex.push(initialPossition + columnIndex);
-                    //     columnIndex -= 1;
-                    // }
                     break;
                 case 'up':
                     wordAddedSuccessfully = false;
@@ -355,16 +289,12 @@ export function HomePage() {
                         usedIndexForWord = [];
                         for (let k = 0; k < wordArray.length; k++) {
                             if (wordArray[k] == letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('match ', wordArray[k]);
                             }
                             if ((usedIndex.includes(initialPossition + columnIndex + rowIndex)) && wordArray[k] != letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('conflict at ', initialPossition + columnIndex + rowIndex)
                                 noPossitionConflict = false;
                                 break;
                             }
                             letterArray[initialPossition + rowIndex] = wordArray[k];
-                            // console.log('position is ', initialPossition + rowIndex, wordArray[k]);
-                            // usedIndex.push(initialPossition + columnIndex);
                             usedIndexForWord.push(initialPossition + columnIndex + rowIndex);
                             rowIndex -= 15;
                         }
@@ -375,17 +305,6 @@ export function HomePage() {
                             wordAddedSuccessfully = true;
                         }
                     }
-                    // rowMin = wordArray.length - 1;
-                    // console.log('rowmin is ', rowMin);
-                    // initialPossition = findInitialPossition(rowMin, rowMax, columnMin, columnMax);
-                    // console.log('initial possition ', initialPossition);
-                    // rowIndex = 0;
-                    // for (let k = 0; k < wordArray.length; k++) {
-                    //     letterArray[initialPossition + rowIndex] = wordArray[k];
-                    //     console.log('position is ', initialPossition + rowIndex, wordArray[k]);
-                    //     usedIndex.push(initialPossition + rowIndex);
-                    //     rowIndex -= 15;
-                    // }
                     break;
                 case 'down':
                     wordAddedSuccessfully = false;
@@ -401,16 +320,12 @@ export function HomePage() {
                         usedIndexForWord = [];
                         for (let k = 0; k < wordArray.length; k++) {
                             if (wordArray[k] == letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('match ', wordArray[k]);
                             }
                             if ((usedIndex.includes(initialPossition + columnIndex + rowIndex)) && wordArray[k] != letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('conflict at ', initialPossition + columnIndex + rowIndex)
                                 noPossitionConflict = false;
                                 break;
                             }
                             letterArray[initialPossition + rowIndex] = wordArray[k];
-                            // console.log('position is ', initialPossition + rowIndex, wordArray[k]);
-                            // usedIndex.push(initialPossition + columnIndex);
                             usedIndexForWord.push(initialPossition + columnIndex + rowIndex);
                             rowIndex += 15;
                         }
@@ -421,18 +336,9 @@ export function HomePage() {
                             wordAddedSuccessfully = true;
                         }
                     }
-                    // rowMax = 15 - wordArray.length;
-                    // initialPossition = findInitialPossition(rowMin, rowMax, columnMin, columnMax);
-                    // console.log('init pos ', initialPossition);
-                    // console.log('word array ', wordArray);
-                    // for (let k = 0; k < wordArray.length; k++) {
-                    //     letterArray[initialPossition + rowIndex] = wordArray[k];
-                    //     console.log('position is ', initialPossition + rowIndex, wordArray[k]);
-                    //     usedIndex.push(initialPossition + rowIndex);
-                    //     rowIndex += 15;
-                    // }
                     break;
                 case 'diagonal1':
+                    // diagonal forward and down
                     wordAddedSuccessfully = false;
                     while (!wordAddedSuccessfully) {
                         rowMin = 0;
@@ -446,16 +352,12 @@ export function HomePage() {
                         usedIndexForWord = [];
                         for (let k = 0; k < wordArray.length; k++) {
                             if (wordArray[k] == letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('match ', wordArray[k]);
                             }
                             if ((usedIndex.includes(initialPossition + columnIndex + rowIndex)) && wordArray[k] != letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('conflict at ', initialPossition + columnIndex + rowIndex)
                                 noPossitionConflict = false;
                                 break;
                             }
                             letterArray[initialPossition + columnIndex + rowIndex] = wordArray[k];
-                            // console.log('position is ', initialPossition + columnIndex + rowIndex, wordArray[k]);
-                            // usedIndex.push(initialPossition + columnIndex);
                             usedIndexForWord.push(initialPossition + columnIndex + rowIndex);
                             rowIndex += 15;
                             columnIndex += 1;
@@ -467,19 +369,9 @@ export function HomePage() {
                             wordAddedSuccessfully = true;
                         }
                     }
-                    // diagonal forward and down
-                    // columnMax = 15 - wordArray.length;
-                    // rowMax = 15 - wordArray.length;
-                    // initialPossition = findInitialPossition(rowMin, rowMax, columnMin, columnMax);
-                    // for (let k = 0; k < wordArray.length; k++) {
-                    //     letterArray[initialPossition + columnIndex + rowIndex] = wordArray[k];
-                    //     console.log('position is ', initialPossition + columnIndex + rowIndex, wordArray[k]);
-                    //     usedIndex.push(initialPossition + columnIndex);
-                    //     rowIndex += 15;
-                    //     columnIndex += 1;
-                    // }
                     break;
                 case 'diagonal2':
+                    // diagonal forward and up
                     wordAddedSuccessfully = false;
                     while (!wordAddedSuccessfully) {
                         rowMin = wordArray.length - 1;
@@ -493,16 +385,12 @@ export function HomePage() {
                         usedIndexForWord = [];
                         for (let k = 0; k < wordArray.length; k++) {
                             if (wordArray[k] == letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('match ', wordArray[k]);
                             }
                             if ((usedIndex.includes(initialPossition + columnIndex + rowIndex)) && wordArray[k] != letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('conflict at ', initialPossition + columnIndex + rowIndex)
                                 noPossitionConflict = false;
                                 break;
                             }
                             letterArray[initialPossition + columnIndex + rowIndex] = wordArray[k];
-                            // console.log('position is ', initialPossition + columnIndex + rowIndex, wordArray[k]);
-                            // usedIndex.push(initialPossition + columnIndex);
                             usedIndexForWord.push(initialPossition + columnIndex + rowIndex);
                             rowIndex -= 15;
                             columnIndex += 1;
@@ -514,17 +402,6 @@ export function HomePage() {
                             wordAddedSuccessfully = true;
                         }
                     }
-                    // diagonal forward and up
-                    // columnMax = 15 - wordArray.length;
-                    // rowMin = wordArray.length - 1;
-                    // initialPossition = findInitialPossition(rowMin, rowMax, columnMin, columnMax);
-                    // for (let k = 0; k < wordArray.length; k++) {
-                    //     letterArray[initialPossition + columnIndex + rowIndex] = wordArray[k];
-                    //     console.log('position is ', initialPossition + columnIndex + rowIndex, wordArray[k]);
-                    //     usedIndex.push(initialPossition + columnIndex);
-                    //     rowIndex -= 15;
-                    //     columnIndex += 1;
-                    // }
                     break;
                 case 'diagonal3':
                     // diagonal backward and down
@@ -540,17 +417,11 @@ export function HomePage() {
                         let noPossitionConflict = true;
                         usedIndexForWord = [];
                         for (let k = 0; k < wordArray.length; k++) {
-                            if (wordArray[k] == letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('match ', wordArray[k]);
-                            }
                             if ((usedIndex.includes(initialPossition + columnIndex + rowIndex)) && wordArray[k] != letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('conflict at ', initialPossition + columnIndex + rowIndex)
                                 noPossitionConflict = false;
                                 break;
                             }
                             letterArray[initialPossition + columnIndex + rowIndex] = wordArray[k];
-                            // console.log('position is ', initialPossition + columnIndex + rowIndex, wordArray[k]);
-                            // usedIndex.push(initialPossition + columnIndex);
                             usedIndexForWord.push(initialPossition + columnIndex + rowIndex);
                             rowIndex += 15;
                             columnIndex -= 1;
@@ -562,17 +433,6 @@ export function HomePage() {
                             wordAddedSuccessfully = true;
                         }
                     }
-
-                    // columnMin = wordArray.length;
-                    // rowMax = 15 - wordArray.length;
-                    // initialPossition = findInitialPossition(rowMin, rowMax, columnMin, columnMax);
-                    // for (let k = 0; k < wordArray.length; k++) {
-                    //     letterArray[initialPossition + columnIndex + rowIndex] = wordArray[k];
-                    //     console.log('position is ', initialPossition + columnIndex + rowIndex, wordArray[k]);
-                    //     usedIndex.push(initialPossition + columnIndex);
-                    //     rowIndex += 15;
-                    //     columnIndex -= 1;
-                    // }
                     break;
                 case 'diagonal4':
                     // diagonal backward and up
@@ -589,16 +449,12 @@ export function HomePage() {
                         usedIndexForWord = [];
                         for (let k = 0; k < wordArray.length; k++) {
                             if (wordArray[k] == letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('match ', wordArray[k]);
                             }
                             if ((usedIndex.includes(initialPossition + columnIndex + rowIndex)) && wordArray[k] != letterArray[initialPossition + columnIndex + rowIndex]) {
-                                // console.log('conflict at ', initialPossition + columnIndex + rowIndex)
                                 noPossitionConflict = false;
                                 break;
                             }
                             letterArray[initialPossition + columnIndex + rowIndex] = wordArray[k];
-                            // console.log('position is ', initialPossition + columnIndex + rowIndex, wordArray[k]);
-                            // usedIndex.push(initialPossition + columnIndex);
                             usedIndexForWord.push(initialPossition + columnIndex + rowIndex);
                             rowIndex -= 15;
                             columnIndex -= 1;
@@ -610,21 +466,9 @@ export function HomePage() {
                             wordAddedSuccessfully = true;
                         }
                     }
-
-                    // columnMin = wordArray.length;
-                    // rowMin = wordArray.length - 1;
-                    // initialPossition = findInitialPossition(rowMin, rowMax, columnMin, columnMax);
-                    // for (let k = 0; k < wordArray.length; k++) {
-                    //     letterArray[initialPossition + columnIndex + rowIndex] = wordArray[k];
-                    //     console.log('position is ', initialPossition + columnIndex + rowIndex, wordArray[k]);
-                    //     usedIndex.push(initialPossition + columnIndex);
-                    //     rowIndex -= 15;
-                    //     columnIndex -= 1;
-                    // }
                     break;
             }
         }
-        // console.log('positions taken ', usedIndex);
         setWordfindArray([...letterArray])
     }, []);
 
@@ -639,8 +483,6 @@ export function HomePage() {
                 <div id="wordfind-container">
                     {wordfindArray.map((char, index) => (
                         <div key={index} className="char-cell" style={{
-                            // color: searchValue.includes(char) === true ? 'red' : 'black',
-                            // fontWeight: searchValue.includes(char) ? 'bold' : 'normal'
                             color: isFoundArray[index] === true ? 'red' : 'gray',
                             fontWeight: isFoundArray[index] === true ? 'bold' : 'normal'
                         }}>
