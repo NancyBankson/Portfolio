@@ -192,7 +192,7 @@ export function HomePage() {
                 // }
             }
             if (matchArray.length > 0) {
-                successArray = [...matchArray];
+                successArray = [...successArray,...matchArray];
                 console.log(matchArray);
                 console.log('here');
             }
