@@ -199,7 +199,7 @@ export function HomePage() {
             randomLetter = String.fromCharCode(Math.floor(Math.random() * (91 - 65)) + 65);
             letterArray.push(randomLetter);
         }
-        const mysteryWords = ['JAVASCRIPT', 'TYPESCRIPT', 'EXPRESS', 'MONGODB', 'REACT', 'HTML', 'NODE', 'CSS'];
+        const mysteryWords = ['JAVASCRIPT', 'TYPESCRIPT', 'EXPRESS', 'MONGODB', 'REACT', 'ZELDA', 'NANCY', 'HTML', 'NODE', 'CSS'];
         for (let j = 0; j < mysteryWords.length; j++) {
             let wordArray = [...mysteryWords[j]];
             let initialPossition = 0;
