@@ -13,52 +13,71 @@ export function HomePage() {
         let searchOrientationValue = 0;
         let tempArray = [...isFoundArray].fill(false);
         let successArray: number[] = [];
-        // let matchArray: number[] = [];
         for (let n = 0; n < wordfindArray.length; n++) {
 
             let matchArray: number[] = [];
 
             if (wordfindArray[n] === searchValue[0]) {
-                tempArray[n] = true;
+                // tempArray[n] = true;
+                matchArray.push(n);
+                if (searchValue.length === 2) {
+                    matchArray = [];
+                }
                 if (searchValue[1] === wordfindArray[n - 16]) {
                     // orientation is up and left
                     searchOrientationValue = -16;
-                    tempArray[n + searchOrientationValue] = true;
+                    // tempArray[n + searchOrientationValue] = true;
+                    matchArray.push(n);
+                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n - 15]) {
                     // orientation is up
                     searchOrientationValue = -15;
-                    tempArray[n + searchOrientationValue] = true;
+                    // tempArray[n + searchOrientationValue] = true;
+                    matchArray.push(n);
+                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n - 14]) {
                     // orientation is up and right
                     searchOrientationValue = -14;
-                    tempArray[n + searchOrientationValue] = true;
+                    // tempArray[n + searchOrientationValue] = true;
+                    matchArray.push(n);
+                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n - 1]) {
                     // orientation is left
                     searchOrientationValue = -1;
-                    tempArray[n + searchOrientationValue] = true;
+                    // tempArray[n + searchOrientationValue] = true;
+                    matchArray.push(n);
+                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 1]) {
                     // orientation is right 
                     searchOrientationValue = 1;
-                    tempArray[n + searchOrientationValue] = true;
+                    // tempArray[n + searchOrientationValue] = true;
+                    matchArray.push(n);
+                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 14]) {
                     // orientation is down and left
                     searchOrientationValue = 14;
-                    tempArray[n + searchOrientationValue] = true;
+                    // tempArray[n + searchOrientationValue] = true;
+                    matchArray.push(n);
+                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 15]) {
                     // orientation is down
                     searchOrientationValue = 15;
-                    tempArray[n + searchOrientationValue] = true;
+                    // tempArray[n + searchOrientationValue] = true;
+                    matchArray.push(n);
+                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 16]) {
                     // orientation is down and right
                     searchOrientationValue = 16;
-                    tempArray[n + searchOrientationValue] = true;
+                    // tempArray[n + searchOrientationValue] = true;
+                    matchArray.push(n);
+                    matchArray.push(n + searchOrientationValue);
                 }
 
                 // if (matchArray.length != searchValue.length) {
@@ -194,7 +213,6 @@ export function HomePage() {
             if (matchArray.length > 0) {
                 successArray = [...successArray,...matchArray];
                 console.log(matchArray);
-                console.log('here');
             }
 
             for (let s = 0; s < 225; s++) {
@@ -202,11 +220,11 @@ export function HomePage() {
                     tempArray[s] = true;
                     console.log('location is ', s);
                 }
-                else {
-                    if (successArray.length === searchValue.length) {
-                        tempArray[s] = false;
-                    }
-                }
+                // else {
+                //     if (successArray.length === searchValue.length) {
+                //         tempArray[s] = false;
+                //     }
+                // }
             }
         }
         for (let t = 0; t < tempArray.length; t++) {
