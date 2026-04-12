@@ -15,7 +15,6 @@ export function HomePage() {
         let tempArray = [...isFoundArray].fill(false);
         let successArray: number[] = [];
         for (let n = 0; n < wordfindArray.length; n++) {
-
             let matchArray: number[] = [];
             let searchOrientation: OrientationType[] = [
                 {
@@ -59,15 +58,6 @@ export function HomePage() {
                     searchOrientationValue: 16
                 },
             ];
-
-            // let orientationIsUpAndLeft = false;
-            // let orientatinIsUp = false;
-            // let orientatinIsUpAndRight = false;
-            // let orientationIsLeft = false;
-            // let orientationIsRight = false;
-            // let orientationIsDownAndLeft = false;
-            // let orientationIsDown = false;
-            // let orientationIsDownAndRight = false;
             if (wordfindArray[n] === searchValue[0]) {
                 matchArray.push(n);
                 if (searchValue.length === 2) {
@@ -76,96 +66,67 @@ export function HomePage() {
                 if (searchValue[1] === wordfindArray[n - 16]) {
                     // orientation is up and left
                     searchOrientation[0].isMatch = true;
-                    searchOrientationValue = -16;
-                    // orientationIsUpAndLeft = true;
-                    matchArray.push(n);
-                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n - 15]) {
                     // orientation is up
                     searchOrientation[1].isMatch = true;
-                    searchOrientationValue = -15;
-
-                    matchArray.push(n);
-                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n - 14]) {
                     // orientation is up and right
                     searchOrientation[2].isMatch = true;
-                    searchOrientationValue = -14;
-
-                    matchArray.push(n);
-                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n - 1]) {
                     // orientation is left
                     searchOrientation[3].isMatch = true;
-                    searchOrientationValue = -1;
-
-                    matchArray.push(n);
-                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 1]) {
                     // orientation is right 
                     searchOrientation[4].isMatch = true;
-                    searchOrientationValue = 1;
-
-                    matchArray.push(n);
-                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 14]) {
                     // orientation is down and left
                     searchOrientation[5].isMatch = true;
-                    searchOrientationValue = 14;
-
-                    matchArray.push(n);
-                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 15]) {
                     // orientation is down
                     searchOrientation[6].isMatch = true;
-                    searchOrientationValue = 15;
-
-                    matchArray.push(n);
-                    matchArray.push(n + searchOrientationValue);
                 }
                 if (searchValue[1] === wordfindArray[n + 16]) {
                     // orientation is down and right
                     searchOrientation[7].isMatch = true;
-                    searchOrientationValue = 16;
-
-                    matchArray.push(n);
-                    matchArray.push(n + searchOrientationValue);
                 }
                 switch (searchValue.length) {
+                    case 2: 
+                        for (let a = 0; a < searchOrientation.length; a++) {
+                            matchArray = [];
+                            if (searchOrientation[a].isMatch === true) {
+                                searchOrientationValue = searchOrientation[a].searchOrientationValue;
+                                if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue])) {
+                                    for (let r = 0; r < searchValue.length; r++) {
+                                        matchArray.push(n + searchOrientationValue * r);
+                                    }
+                                    if (matchArray.length > 0) {
+                                        successArray = [...successArray, ...matchArray];
+                                    }
+                                }
+                            }
+                        }
+                        break;
                     case 3:
                         for (let a = 0; a < searchOrientation.length; a++) {
                             matchArray = [];
                             if (searchOrientation[a].isMatch === true) {
                                 searchOrientationValue = searchOrientation[a].searchOrientationValue;
-                                // matchArray = [];
                                 if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2])) {
                                     for (let r = 0; r < searchValue.length; r++) {
                                         matchArray.push(n + searchOrientationValue * r);
                                     }
-                                    console.log('in case matcharrayy ', matchArray);
-                                }
-                                if (matchArray.length > 0) {
-                                    console.log('before', matchArray);
-                                    successArray = [...successArray, ...matchArray];
-                                    console.log('after match', matchArray);
-                                    console.log('success', successArray);
-
+                                    if (matchArray.length > 0) {
+                                        successArray = [...successArray, ...matchArray];
+                                    }
                                 }
                             }
                         }
-                        // matchArray = [];
-                        // if ((searchValue[0] === wordfindArray[n]) && (searchValue[1] === wordfindArray[n + searchOrientationValue]) && (searchValue[2] === wordfindArray[n + searchOrientationValue * 2])) {
-                        //     for (let r = 0; r < searchValue.length; r++) {
-                        //         matchArray.push(n + searchOrientationValue * r);
-                        //     }
-                        //     console.log('in case matcharrayy ', matchArray);
-                        // }
                         break;
                     case 4:
                         for (let a = 0; a < searchOrientation.length; a++) {
@@ -360,16 +321,10 @@ export function HomePage() {
                         }
                         break;
                 }
-            }
-            console.log(matchArray.length);
-            if (matchArray.length > 0) {
-                console.log('before', matchArray);
+            }  
+            if (matchArray.length > 0) {           
                 successArray = [...successArray, ...matchArray];
-                console.log('after match', matchArray);
-                console.log('success', successArray);
-
             }
-
             for (let s = 0; s < 225; s++) {
                 if (successArray.includes(s)) {
                     tempArray[s] = true;
