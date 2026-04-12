@@ -5,12 +5,19 @@ export function HomePage() {
     const [searchValue, setSearchValue] = useState<string>("");
     const [isFoundArray, setIsFoundArray] = useState<boolean[]>(() => Array(225).fill(false));
     const [wordfindArray, setWordfindArray] = useState<string[]>([]);
+    const [foundWords, setFoundWords] = useState<string[]>([]);
+    const mysteryWords = ['JAVASCRIPT', 'TYPESCRIPT', 'EXPRESS', 'MONGODB', 'REACT', 'ZELDA', 'NANCY', 'HTML', 'NODE', 'CSS'];
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value.toUpperCase());
     };
 
     useEffect(() => {
+        for (let b = 0; b < mysteryWords.length; b++) {
+            if (searchValue === mysteryWords[b]) {
+                setFoundWords([...foundWords, searchValue]);
+            }
+        }
         let searchOrientationValue = 0;
         let tempArray = [...isFoundArray].fill(false);
         let successArray: number[] = [];
@@ -96,7 +103,7 @@ export function HomePage() {
                     searchOrientation[7].isMatch = true;
                 }
                 switch (searchValue.length) {
-                    case 2: 
+                    case 2:
                         for (let a = 0; a < searchOrientation.length; a++) {
                             matchArray = [];
                             if (searchOrientation[a].isMatch === true) {
@@ -321,8 +328,8 @@ export function HomePage() {
                         }
                         break;
                 }
-            }  
-            if (matchArray.length > 0) {           
+            }
+            if (matchArray.length > 0) {
                 successArray = [...successArray, ...matchArray];
             }
             for (let s = 0; s < 225; s++) {
@@ -344,7 +351,7 @@ export function HomePage() {
             randomLetter = String.fromCharCode(Math.floor(Math.random() * (91 - 65)) + 65);
             letterArray.push(randomLetter);
         }
-        const mysteryWords = ['JAVASCRIPT', 'TYPESCRIPT', 'EXPRESS', 'MONGODB', 'REACT', 'ZELDA', 'NANCY', 'HTML', 'NODE', 'CSS'];
+        // const mysteryWords = ['JAVASCRIPT', 'TYPESCRIPT', 'EXPRESS', 'MONGODB', 'REACT', 'ZELDA', 'NANCY', 'HTML', 'NODE', 'CSS'];
         for (let j = 0; j < mysteryWords.length; j++) {
             let wordArray = [...mysteryWords[j]];
             let initialPossition = 0;
@@ -637,6 +644,15 @@ export function HomePage() {
                 </div>
                 <div>
                     <input id="search-bar" type="text" name="search" value={searchValue} onChange={handleChange} placeholder="Search wordfind"></input>
+                    <h3>Welcome to the Wordfind featuring REACT</h3>
+                    <p>Enter a word into the searchbar to find it in the wordfind.  Notice the state of the wordfind updates as each letter is entered.  Start with "REACT".  The Wordfind contains 10 words.  Enjoy!</p>
+                    {(foundWords.length > 0) && <h3>Found Words:</h3>}
+                    {foundWords.map((word, index) => (
+                        <div key={index}>
+                            {word}
+                        </div>
+                    ))
+                    }
                 </div>
             </div>
         </>

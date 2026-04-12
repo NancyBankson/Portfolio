@@ -7,7 +7,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: black;
-  color: white;
+  color: rgb(192, 191, 191);
 }
 
 #nav-container {
