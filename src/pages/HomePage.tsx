@@ -14,7 +14,7 @@ export function HomePage() {
 
     useEffect(() => {
         for (let b = 0; b < mysteryWords.length; b++) {
-            if (searchValue === mysteryWords[b]) {
+            if ((searchValue === mysteryWords[b]) && (!foundWords.includes(searchValue))) {
                 setFoundWords([...foundWords, searchValue]);
             }
         }
