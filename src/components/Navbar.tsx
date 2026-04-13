@@ -5,9 +5,9 @@ export function Navbar() {
         <nav>
             <div id="nav-container">
                 <ul>
-                    <li><NavLink to="/" style={({ isActive }) => ({ color: isActive ? '#73877B' : 'white', })}>Home</NavLink></li>
-                    <li><NavLink to="/about" style={({ isActive }) => ({ color: isActive ? '#73877B' : 'hsl(200, 15%, 8%)', })}>About</NavLink></li>
-                    <li><NavLink to="/projects" style={({ isActive }) => ({ color: isActive ? '#73877B' : 'hsl(200, 15%, 8%)', })}>Projects</NavLink></li>
+                    <li><NavLink to="/" style={({ isActive }) => ({ color: isActive ? '#83C5BE' : '#73877B' })}>Home</NavLink></li>
+                    <li><NavLink to="/about" style={({ isActive }) => ({ color: isActive ? '#83C5BE' : '#73877B' })}>About</NavLink></li>
+                    <li><NavLink to="/projects" style={({ isActive }) => ({ color: isActive ? '#83C5BE' : '#73877B' })}>Projects</NavLink></li>
                 </ul>
             </div>
         </nav>

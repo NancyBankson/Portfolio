@@ -6,11 +6,23 @@ export function HomePage() {
     const [isFoundArray, setIsFoundArray] = useState<boolean[]>(() => Array(225).fill(false));
     const [wordfindArray, setWordfindArray] = useState<string[]>([]);
     const [foundWords, setFoundWords] = useState<string[]>([]);
-    const mysteryWords = ['JAVASCRIPT', 'TYPESCRIPT', 'EXPRESS', 'MONGODB', 'REACT', 'ZELDA', 'NANCY', 'HTML', 'NODE', 'CSS'];
+    const [wordsLocation, setWordsLocation] = useState<number[]>([]);
+    const mysteryWords = ['JAVASCRIPT', 'TYPESCRIPT', 'EXPRESS', 'MONGODB', 'PYTHON', 'REACT', 'ZELDA', 'NANCY', 'HTML', 'NODE', 'CSS'];
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value.toUpperCase());
     };
+
+    const handleClick = () => {
+        console.log('clicked');
+        let tempArray = [];
+        for (let s = 0; s < 225; s++) {
+            if (wordsLocation.includes(s)) {
+                tempArray[s] = true;
+            }
+        }
+        setIsFoundArray([...tempArray]);
+    }
 
     useEffect(() => {
         for (let b = 0; b < mysteryWords.length; b++) {
@@ -621,7 +633,8 @@ export function HomePage() {
                     break;
             }
         }
-        setWordfindArray([...letterArray])
+        setWordsLocation([...usedIndex]);
+        setWordfindArray([...letterArray]);
     }, []);
 
     function findInitialPossition(rowMin: number, rowMax: number, columnMin: number, columnMax: number) {
@@ -642,17 +655,20 @@ export function HomePage() {
                         </div>
                     ))}
                 </div>
-                <div>
+                <div id="text-area">
                     <input id="search-bar" type="text" name="search" value={searchValue} onChange={handleChange} placeholder="Search wordfind"></input>
+                    <button onClick={handleClick}>Show all answers</button>
                     <h3>Welcome to the Wordfind featuring REACT</h3>
-                    <p>Enter a word into the searchbar to find it in the wordfind.  Notice the state of the wordfind updates as each letter is entered.  Start with "REACT".  The Wordfind contains 10 words.  Enjoy!</p>
-                    {(foundWords.length > 0) && <h3>Found Words:</h3>}
-                    {foundWords.map((word, index) => (
-                        <div key={index}>
-                            {word}
-                        </div>
-                    ))
-                    }
+                    <p>Enter a word into the searchbar to find it in the wordfind.  Notice the state of the wordfind updates as each letter is entered.  Start with "REACT".  The Wordfind contains 11 words.  Enjoy!</p>
+                     {(foundWords.length > 0) && <h3>Found Words:</h3>}
+                    <div id="found-words">                       
+                        {foundWords.map((word, index) => (
+                            <div key={index} style={{ flex: '0 0 50%' }}>
+                                {word}
+                            </div>
+                        ))
+                        }
+                    </div>
                 </div>
             </div>
         </>

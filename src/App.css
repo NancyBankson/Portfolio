@@ -2,33 +2,66 @@
   display: flex;
   justify-content: center;
   color: white;
+  padding: 30px 0 15px 0;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
   background-color: black;
   color: rgb(192, 191, 191);
 }
 
-#nav-container {
-  padding: 30px 0 15px 0;
-}
-
 #home-title {
-  padding-left: 30px;
+  padding-left: 220px;
+  color: #83C5BE;
+  font-family: "Bricolage Grotesque", sans-serif;
 }
 
 #wordfind-area {
   display: flex;
+  justify-content: center;
+  gap: 50px;
 }
 
 #wordfind-container {
-  padding: 0 30px 0;
   display: grid;
   /* Creates 10 columns, each 20px wide */
   grid-template-columns: repeat(15, 30px);
   /* Creates 10 rows, each 20px high */
   grid-template-rows: repeat(15, 30px);
+}
+
+#text-area {
+  max-width: 540px;
+}
+
+input {
+  background-color: black;
+  color: rgb(192, 191, 191);
+  height: 1.5rem;
+  border-radius: 10px;
+}
+
+button {
+  margin-left: 30px;
+  background-color: #83C5BE;
+  color: black;
+  height: 1.5rem;
+  border-radius: 10px;
+}
+
+h3 {
+  color: #83C5BE;
+}
+
+#found-words {
+  /* display: grid;
+  grid-template-columns: '1fr 1fr';
+  gap: '10px';
+  max-height: 50px; */
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .char-cell {
