@@ -17,7 +17,9 @@ export function ProjectsPage() {
                     </div>
                     <div className="project-rows">
                         <img className="project-image" src="/recipes.png" />
-                        <div className="project-content">Some content</div>
+                        <div className="project-content">
+                            <a href="http://recipediscoveryapp.netlify.app">Recipe Discovery App</a>
+                        </div>
                     </div>
                 </div>
             </div>
