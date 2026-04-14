@@ -1,7 +1,7 @@
 export function AboutPage() {
     return (
         <>
-            <div id="home-body">
+            <div id="about-body">
                 <div>
                     <img id="my-pic" src="/Nancy_20251121b.jpg" />
                 </div>

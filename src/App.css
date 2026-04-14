@@ -68,7 +68,7 @@ h3 {
   justify-content: center;
 }
 
-#home-body {
+#about-body {
   display: flex;
   justify-content: center;
   gap: 50px;
@@ -97,7 +97,7 @@ h3 {
   justify-content: center;
 }
 
-.project-rows {
+.project-rows-even, .project-rows-odd {
   display: flex;
   gap: 40px;
 }
@@ -186,5 +186,30 @@ h3 {
   #found-words {
     text-align: left;
   }
+
+  #about-body {
+    margin-top: 15px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+#project-columns {
+  gap: 25px;
+}
+
+.project-rows-odd {
+  flex-direction: column-reverse;
+}
+
+.project-rows-even {
+  flex-direction: column;
+}
+
+.project-image, .project-content {
+  width: 95%;
+  margin: 0 10px;
+}
 
 }
