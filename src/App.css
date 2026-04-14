@@ -37,7 +37,7 @@ body {
 }
 
 input {
-  background-color: black;
+  background-color: rgb(42, 42, 42);
   color: rgb(192, 191, 191);
   height: 1.5rem;
   border-radius: 10px;
@@ -116,7 +116,8 @@ h3 {
   justify-content: center;
 }
 
-.project-anchor, .nav-component {
+.project-anchor,
+.nav-component {
   font-weight: 700;
   font-size: 1.2rem;
   color: #83C5BE;
@@ -135,4 +136,55 @@ h3 {
   padding: 0;
   margin: 0;
   gap: 20px;
+}
+
+@media (max-width: 750px) {
+
+  #nav-container {
+    padding: 10px 0 0;
+  }
+
+  #home-title,
+  #text-area {
+    padding: 0;
+    text-align: center;
+  }
+
+  #text-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #text-area p {
+    margin: 0;
+  }
+
+  #wordfind-area {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  #wordfind-container {
+    display: grid;
+    /* Creates 10 columns, each 20px wide */
+    grid-template-columns: repeat(15, 22px);
+    /* Creates 10 rows, each 20px high */
+    grid-template-rows: repeat(15, 22px);
+  }
+
+  #search-bar {
+    width: 170px;
+  }
+
+  button {
+    margin: 15px 0 0;
+    width: 170px;
+  }
+
+  #found-words {
+    text-align: left;
+  }
+
 }
