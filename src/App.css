@@ -58,10 +58,6 @@ h3 {
 }
 
 #found-words {
-  /* display: grid;
-  grid-template-columns: '1fr 1fr';
-  gap: '10px';
-  max-height: 50px; */
   display: flex;
   flex-wrap: wrap;
 }
@@ -120,11 +116,11 @@ h3 {
   justify-content: center;
 }
 
-.project-anchor {
+.project-anchor, .nav-component {
   font-weight: 700;
   font-size: 1.2rem;
   color: #83C5BE;
-  text-decoration: inherit;
+  text-decoration: none;
 }
 
 .in-line-anchor {
@@ -132,7 +128,7 @@ h3 {
   color: #83C5BE;
 }
 
-ul {
+#nav-list {
   list-style: none;
   text-decoration: none;
   display: flex;

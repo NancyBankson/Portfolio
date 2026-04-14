@@ -26,7 +26,8 @@ export function ProjectsPage() {
                     </div>
                     <div className="project-rows">
                         <div className="project-content">
-                            <a className="project-anchor" href="https://github.com/NancyBankson/Code-In-Place">Fibonacci Spiral Created in Python for Code-In-Place</a>
+                            <a className="project-anchor" href="https://github.com/NancyBankson/Code-In-Place">Fibonacci Spiral</a>
+                            <p>I created this Fibonacci Spiral using mathematical expressions in python as my final project for Code-In-Place (Stanford) 2024.</p>
                         </div>
                         <a href="https://github.com/NancyBankson/Code-In-Place"><img className="project-image" src="/Fibonacci_spiral.PNG" /></a>
                     </div>
