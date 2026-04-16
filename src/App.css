@@ -235,6 +235,11 @@ h3 {
 
   #nav-container {
     padding: 10px 0 0;
+    flex-direction: column;
+  }
+
+  #theme-bar {
+    margin: 0 auto;
   }
 
   #home-title,
@@ -296,7 +301,7 @@ h3 {
     padding: 0;
   }
 
-  .skill-card {
+  .skill-card, .skill-card-light-mode {
     margin: 0 auto;
     height: auto;
   }
