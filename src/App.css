@@ -41,6 +41,7 @@ input {
   color: rgb(192, 191, 191);
   height: 1.5rem;
   border-radius: 10px;
+  padding-left: 5px;
 }
 
 button {
