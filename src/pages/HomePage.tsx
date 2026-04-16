@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import type { OrientationType } from "../types/types";
+import { ThemeContext } from "../context/ThemeContext";
 
 export function HomePage() {
     const [searchValue, setSearchValue] = useState<string>("");
@@ -7,6 +8,7 @@ export function HomePage() {
     const [wordfindArray, setWordfindArray] = useState<string[]>([]);
     const [foundWords, setFoundWords] = useState<string[]>([]);
     const [wordsLocation, setWordsLocation] = useState<number[]>([]);
+    const { theme } = useContext(ThemeContext);
     const mysteryWords = ['JAVASCRIPT', 'TYPESCRIPT', 'EXPRESS', 'MONGODB', 'PYTHON', 'REACT', 'ZELDA', 'NANCY', 'HTML', 'NODE', 'CSS'];
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -656,7 +658,7 @@ export function HomePage() {
                     ))}
                 </div>
                 <div id="text-area">
-                    <input id="search-bar" type="text" name="search" value={searchValue} onChange={handleChange} placeholder="Search wordfind"></input>
+                    <input id="search-bar" className={(theme === "Light") ? 'light-mode' : undefined} type="text" name="search" value={searchValue} onChange={handleChange} placeholder="Search wordfind"></input>
                     <button onClick={handleClick}>Show all answers</button>
                     <h3>Welcome to the Wordfind featuring REACT</h3>
                     <p>Enter a word into the searchbar to find it in the wordfind.  Notice the state of the wordfind updates as each letter is entered.  Start with "REACT".  The Wordfind contains 11 words.  Enjoy!</p>

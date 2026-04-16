@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+
 export function AboutPage() {
+    const { theme } = useContext(ThemeContext);
+
     return (
         <>
             <div id="about-body">
@@ -15,7 +20,7 @@ export function AboutPage() {
                 <h2>Recent skills aquired</h2>
             </div>
             <div id="card-container">
-                <div className="skill-card">
+                <div className={(theme === "Light") ? 'skill-card-light-mode' : "skill-card"}>
                     <img className="card-image" src="/MERN-logo.png" alt="C# logo"></img>
                     <div className="card-body">
                         <p><span className="text">Per Scholas</span> Software Engineering Program</p>
@@ -23,19 +28,19 @@ export function AboutPage() {
                         <p><span className="text">FreeCodeCamp</span> "Responsive Web Design"</p>
                     </div>
                 </div>
-                <div className="skill-card">
+                <div className={(theme === "Light") ? 'skill-card-light-mode' : "skill-card"}>
                     <img className="card-image" src="/python-logo-only.png" alt="C# logo"></img>
                     <div className="card-body">
                         <p><span className="text">Stanford's </span>Code-In-Place</p>
                     </div>
                 </div>
-                <div className="skill-card">
+                <div className={(theme === "Light") ? 'skill-card-light-mode' : "skill-card"}>
                     <img className="card-image" src="/azure-sql-database-monitoring.png" alt="C# logo"></img>
                     <div className="card-body">
                         <p>Practicing queries with <span className="text">Hackerrank</span>, <span className="text">FreeCodeCamp</span> "SQL and Databases", <span className="text">Scrimba</span> "Learn SQL"</p>
                     </div>
                 </div>
-                <div className="skill-card">
+                <div className={(theme === "Light") ? 'skill-card-light-mode' : "skill-card"}>
                     <img className="card-image" src="/logo_csharp.png" alt="C# logo"></img>
                     <div className="card-body">
                         <p><span className="text">FreeCodeCamp </span>Foundational C# with <span className="text">Microsoft</span> Certification</p>

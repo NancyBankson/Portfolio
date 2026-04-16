@@ -1,8 +1,37 @@
+#root {
+  background-color: black;
+  color: rgb(192, 191, 191);
+}
+
+#root.light-mode,
+body.light-mode,
+#search-bar.light-mode,
+#theme-bar.light-mode {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(200, 15%, 8%);
+}
+
+#search-bar.light-mode {
+  border: 1px solid hsl(200, 15%, 8%);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+}
+
 #nav-container {
   display: flex;
   justify-content: center;
   color: white;
+  width: 100%;
   padding: 30px 0 15px 0;
+}
+
+#theme-bar {
+  background-color: black;
+  color: rgb(192, 191, 191);
+  margin-right: 15px;
+}
+
+#theme-bar p {
+  margin: 0;
 }
 
 body {
@@ -10,6 +39,8 @@ body {
   line-height: 1.5;
   background-color: black;
   color: rgb(192, 191, 191);
+  margin: 0;
+  padding-bottom: 50px;
 }
 
 #home-title {
@@ -50,6 +81,7 @@ button {
   background-color: #83C5BE;
   color: black;
   height: 2rem;
+  border: #83C5BE;
   border-radius: 10px;
   font-size: 1rem;
 }
@@ -110,6 +142,19 @@ h3 {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.skill-card-light-mode {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(200, 15%, 8%);
+  border-radius: 10px;
+  width: 350px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid transparent;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
 }
 
 .card-image {
@@ -182,7 +227,7 @@ h3 {
   text-decoration: none;
   display: flex;
   padding: 0;
-  margin: 0;
+  margin: 0 auto 0 auto;
   gap: 20px;
 }
 
