@@ -11,3 +11,9 @@ export interface ThemeContextType {
 
 export type Theme =
     "Light" | "Dark";
+
+export interface ModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    children: React.ReactNode;
+}

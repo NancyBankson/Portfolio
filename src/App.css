@@ -3,6 +3,10 @@
   color: rgb(192, 191, 191);
 }
 
+a:hover, .cert-text:hover {
+  color: #ca7b6e;
+}
+
 #root.light-mode,
 body.light-mode,
 #search-bar.light-mode,
@@ -101,6 +105,29 @@ h3 {
   justify-content: center;
 }
 
+dialog:modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+dialog:modal button {
+  padding: 0 10px 0 10px;
+  margin-bottom: 5px;
+}
+
+.cert {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.cert-text {
+  text-decoration: underline;
+  color: #83C5BE;
+}
+
 #about-body {
   display: flex;
   justify-content: center;
@@ -138,7 +165,7 @@ h3 {
   background-color: rgb(42, 42, 42);
   border-radius: 10px;
   width: 350px;
-  height: 320px;
+  height: 370px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -303,7 +330,8 @@ h3 {
     padding: 0;
   }
 
-  .skill-card, .skill-card-light-mode {
+  .skill-card,
+  .skill-card-light-mode {
     margin: 0 auto;
     height: auto;
   }
@@ -317,6 +345,10 @@ h3 {
     margin: 0;
     padding: 0 10px 0 10px;
     text-align: center;
+  }
+
+  .cert {
+    width: 200px;
   }
 
   #project-columns {
