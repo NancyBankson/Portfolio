@@ -7,6 +7,7 @@ export function AboutPage() {
     const [isPerScholasCert, setIsPerScholasCert] = useState(false);
     const [isScrimbaCert, setIsScrimbaCert] = useState(false);
     const [isCipCert, setIsCipCert] = useState(false);
+    const [isRelationalDatabaseCert, setIsRelationalDatabaseCert] = useState(false);
     const { theme } = useContext(ThemeContext);
 
     const OpenPerScholasCert = () => {
@@ -24,11 +25,17 @@ export function AboutPage() {
         setIsCipCert(true);
     };
 
+     const OpenRelationalCert = () => {
+        setIsModalOpen(true);
+        setIsRelationalDatabaseCert(true);
+    };
+
     const handleModalClose = () => {
         setIsModalOpen(false);
         setIsPerScholasCert(false);
         setIsScrimbaCert(false);
         setIsCipCert(false);
+        setIsRelationalDatabaseCert(false);
     }
 
     return (
@@ -41,6 +48,7 @@ export function AboutPage() {
                 {(isPerScholasCert) && <img className="cert" src="Per-Scholas-Certificate.png"></img>}
                 {(isScrimbaCert) && <img className="cert" src="Scrimba-HTML-cert.png"></img>}
                 {(isCipCert) && <img className="cert" src="Code-in-place-cert.png"></img>}
+                {(isRelationalDatabaseCert) && <img className="cert" src="Relational-database-cert.png"></img>}
             </Modal>
             <div id="about-body">
                 <div>
@@ -75,7 +83,7 @@ export function AboutPage() {
                 <div className={(theme === "Light") ? 'skill-card-light-mode' : "skill-card"}>
                     <img className="card-image" src="/azure-sql-database-monitoring.png" alt="C# logo"></img>
                     <div className="card-body">
-                        <p><span className="text">Hackerrank </span>challenges, <span className="text">FreeCodeCamp</span> "SQL and Databases", <span className="text">Scrimba</span> "Learn SQL"</p>
+                        <p className="cert-text" onClick={OpenRelationalCert}>freeCodeCamp Relational Database Certificate</p>
                     </div>
                 </div>
                 <div className={(theme === "Light") ? 'skill-card-light-mode' : "skill-card"}>
