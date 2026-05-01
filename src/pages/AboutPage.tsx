@@ -32,10 +32,10 @@ export function AboutPage() {
 
     const handleModalClose = () => {
         setIsModalOpen(false);
-        setIsPerScholasCert(false);
-        setIsScrimbaCert(false);
-        setIsCipCert(false);
-        setIsRelationalDatabaseCert(false);
+        if (isPerScholasCert) setIsPerScholasCert(false);
+        if (isScrimbaCert) setIsScrimbaCert(false);
+        if (isCipCert) setIsCipCert(false);
+        if (isRelationalDatabaseCert) setIsRelationalDatabaseCert(false);
     }
 
     return (
