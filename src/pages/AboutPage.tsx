@@ -68,10 +68,7 @@ export function AboutPage() {
                     <img className="card-image" src="/MERN-logo.png" alt="C# logo"></img>
                     <div className="card-body">
                         <p className="cert-text" onClick={OpenPerScholasCert}>Per Scholas Software Engineering Certificate</p>
-                        <p className="cert-text" onClick={OpenScrimbaCert}>Scrimba "Learn HTML and CSS" Certificate</p>
-                        <p><span className="text">Scrimba</span> "Learn JavaScript", "Learn Accessible Web Design"</p>
-                        <p><span className="text">FreeCodeCamp</span> "Responsive Web Design"</p>
-                        
+                        <p className="cert-text" onClick={OpenScrimbaCert}>Scrimba "Learn HTML and CSS" Certificate</p>                        
                     </div>
                 </div>
                 <div className={(theme === "Light") ? 'skill-card-light-mode' : "skill-card"}>
