@@ -8,6 +8,7 @@ export function AboutPage() {
     const [isScrimbaCert, setIsScrimbaCert] = useState(false);
     const [isCipCert, setIsCipCert] = useState(false);
     const [isRelationalDatabaseCert, setIsRelationalDatabaseCert] = useState(false);
+    const [isCsharpCert, setIsCsharpCert] = useState(false);
     const { theme } = useContext(ThemeContext);
 
     const OpenPerScholasCert = () => {
@@ -30,12 +31,18 @@ export function AboutPage() {
         setIsRelationalDatabaseCert(true);
     };
 
+    const OpenCsharpCert = () => {
+        setIsModalOpen(true);
+        setIsCsharpCert(true);
+    }
+
     const handleModalClose = () => {
         setIsModalOpen(false);
         if (isPerScholasCert) setIsPerScholasCert(false);
         if (isScrimbaCert) setIsScrimbaCert(false);
         if (isCipCert) setIsCipCert(false);
         if (isRelationalDatabaseCert) setIsRelationalDatabaseCert(false);
+        if (isCsharpCert) setIsCsharpCert(false);
     }
 
     return (
@@ -49,6 +56,7 @@ export function AboutPage() {
                 {(isScrimbaCert) && <img className="cert" src="Scrimba-HTML-cert.png"></img>}
                 {(isCipCert) && <img className="cert" src="Code-in-place-cert.png"></img>}
                 {(isRelationalDatabaseCert) && <img className="cert" src="Relational-database-cert.png"></img>}
+                {(isCsharpCert) && <img className="cert" src="Csharp-cert.png"></img>}
             </Modal>
             <div id="about-body">
                 <div>
@@ -86,7 +94,7 @@ export function AboutPage() {
                 <div className={(theme === "Light") ? 'skill-card-light-mode' : "skill-card"}>
                     <img className="card-image" src="/logo_csharp.png" alt="C# logo"></img>
                     <div className="card-body">
-                        <p><span className="text">FreeCodeCamp </span>Foundational C# with <span className="text">Microsoft</span> Certification</p>
+                        <p className="cert-text" onClick={OpenCsharpCert}>Foundational C# with Certification</p>
                     </div>
                 </div>
             </div>
