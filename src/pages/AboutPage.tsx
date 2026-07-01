@@ -9,6 +9,7 @@ export function AboutPage() {
     const [isCipCert, setIsCipCert] = useState(false);
     const [isRelationalDatabaseCert, setIsRelationalDatabaseCert] = useState(false);
     const [isCsharpCert, setIsCsharpCert] = useState(false);
+    const [isMBCert, setIsMBCert] = useState(false);
     const { theme } = useContext(ThemeContext);
 
     const OpenPerScholasCert = () => {
@@ -36,6 +37,11 @@ export function AboutPage() {
         setIsCsharpCert(true);
     }
 
+    const OpenMBCert = () => {
+        setIsModalOpen(true);
+        setIsMBCert(true);
+    }
+
     const handleModalClose = () => {
         setIsModalOpen(false);
         if (isPerScholasCert) setIsPerScholasCert(false);
@@ -43,6 +49,7 @@ export function AboutPage() {
         if (isCipCert) setIsCipCert(false);
         if (isRelationalDatabaseCert) setIsRelationalDatabaseCert(false);
         if (isCsharpCert) setIsCsharpCert(false);
+        if (isMBCert) setIsMBCert(false);
     }
 
     return (
@@ -57,6 +64,7 @@ export function AboutPage() {
                 {(isCipCert) && <img className="cert" src="Code-in-place-cert.png"></img>}
                 {(isRelationalDatabaseCert) && <img className="cert" src="Relational-database-cert.png"></img>}
                 {(isCsharpCert) && <img className="cert" src="Csharp-cert.png"></img>}
+                {(isMBCert) && <img className="cert" src="MB-ASCP-Cert.png"></img>}
             </Modal>
             <div id="about-body">
                 <div>
@@ -95,6 +103,12 @@ export function AboutPage() {
                     <img className="card-image" src="/logo_csharp.png" alt="C# logo"></img>
                     <div className="card-body">
                         <p className="cert-text" onClick={OpenCsharpCert}>Foundational C# with Certification</p>
+                    </div>
+                </div>
+                <div className={(theme === "Light") ? 'skill-card-light-mode' : "skill-card"}>
+                    <img className="card-image" src="/mb-ascp.png" alt="molecular biology logo"></img>
+                    <div className="card-body">
+                        <p className="cert-text" onClick={OpenMBCert}>Scientist in Molecular Biology Certification from ASCP</p>
                     </div>
                 </div>
             </div>
